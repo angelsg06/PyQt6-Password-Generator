@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "password-generator-pyqt6-app"
+version = "0.1.0"
+description = ""
+authors = ["angelsg06 <segoa587@hsd.k12.or.us>"]
+readme = "README.md"
+packages = [{include = "password_generator_pyqt6_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poeyty.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
