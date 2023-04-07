@@ -16,7 +16,7 @@ class PasswordGenerator(QtWidgets.QMainWindow):
         layout = QtWidgets.QVBoxLayout(central_widget)
 
         # creates the widget variables for: labels, spinbox, checkboxes, buttons
-        password_length_label = QtWidgets.QLabel("Password Length(1-15:")
+        password_length_label = QtWidgets.QLabel("Password Length(1-15):")
         self.password_length = QtWidgets.QSpinBox()
         self.include_lowercase = QtWidgets.QCheckBox("Include Lowercase Letters")
         self.include_uppercase = QtWidgets.QCheckBox("Include Uppercase Letters")
@@ -26,9 +26,18 @@ class PasswordGenerator(QtWidgets.QMainWindow):
         clear_button = QtWidgets.QPushButton("Clear")
         self.password_display = QtWidgets.QLabel()
 
+        # Adds the widgets to the layout
+        layout.addWidget(password_length_label)
+        layout.addWidget(self.password_length)
+        layout.addWidget(self.include_lowercase)
+        layout.addWidget(self.include_uppercase)
+        layout.addWidget(self.include_numbers)
+        layout.addWidget(self.include_symbols)
+        layout.addWidget(generate_button)
+        layout.addWidget(clear_button)
+        layout.addWidget(self.password_display)
+
         
-
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
