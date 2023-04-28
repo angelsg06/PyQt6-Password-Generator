@@ -3,6 +3,7 @@ import string
 import random
 
 from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QWidget ,QCheckBox, QSpinBox, QLabel, QVBoxLayout
 )
 
@@ -13,14 +14,25 @@ class PasswordGenerator(QMainWindow):
 
         # Creates the widget variables for: labels, spinbox, checkboxes, buttons
         password_length_label = QLabel("Password Length(1-15):")
+        password_length_label.setFont(QFont("Arial", 12))
+
         self.password_length_spinbox = QSpinBox()
         self.include_lowercase_checkbox = QCheckBox("Include Lowercase Letters")
+        self.include_lowercase_checkbox.setStyleSheet("QCheckBox::indicator:checked {background-color: red}")
+
         self.include_uppercase_checkbox = QCheckBox("Include Uppercase Letters")
+        self.include_uppercase_checkbox.setStyleSheet("QCheckBox::indicator:checked {background-color: green}")
+
         self.include_numbers_checkbox = QCheckBox("Include Numbers")
+        self.include_numbers_checkbox.setStyleSheet("QCheckBox::indicator:checked {background-color: blue}")
+
         self.include_symbols_checkbox = QCheckBox("Include Symbols")
+        self.include_symbols_checkbox.setStyleSheet("QCheckBox::indicator:checked {background-color: violet}")
+
         generate_button = QPushButton("Generate Password")
         clear_button = QPushButton("Clear")
         self.password_display_label = QLabel()
+        self.password_display_label.setFont(QFont("Verdana", 10))
 
         # Connects button to clear fields function
         clear_button.clicked.connect(self.clear_fields)
