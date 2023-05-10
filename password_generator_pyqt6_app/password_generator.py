@@ -11,11 +11,12 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QWidget ,QC
 class PasswordGenerator(QMainWindow):
     def __init__(self):
         super().__init__()  
-        self.setFixedSize(365, 340)
+        self.setFixedSize(460, 400)
         self.setStyleSheet("background-color: #ADD8E6;")
         
         # Creates the widget variable for the disclaimer at the top of the app
-        disclaimer_label = QLabel("Disclaimer: The recommended password length is 12 digits long!")
+        disclaimer_label_1 = QLabel("Disclaimer: The recommended password length is 12 digits long!")
+        disclaimer_label_2 = QLabel("Also, the password is AUTOMATICALLY copied to the clipboard!")
 
         # Creates the widget variable for the password length label
         password_length_label = QLabel("Password Length(1-15):")
@@ -43,6 +44,8 @@ class PasswordGenerator(QMainWindow):
         clear_button = QPushButton("Clear")
         self.password_display_label = QLabel()
         self.password_display_label.setFont(QFont("Verdana", 10))
+        
+        self.display_text_label = QLabel()
 
         # Connects button to clear fields and generate password functions
         clear_button.clicked.connect(self.clear_fields)
@@ -55,7 +58,8 @@ class PasswordGenerator(QMainWindow):
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         main_layout = QVBoxLayout(central_widget)
-        main_layout.addWidget(disclaimer_label)
+        main_layout.addWidget(disclaimer_label_1)
+        main_layout.addWidget(disclaimer_label_2)
         main_layout.addWidget(password_length_label)
         main_layout.addWidget(self.password_length_spinbox)
         main_layout.addWidget(self.include_lowercase_checkbox)
@@ -101,6 +105,8 @@ class PasswordGenerator(QMainWindow):
         # Generate the password using the selected characters
         password = ''.join(random.choice(allowed_chars) for _ in range(length))
         self.password_display_label.setText(f"Generated Password: {password}")
+        clipboard = QApplication.clipboard()
+        clipboard.setText(password)
      
 if __name__ == "__main__":
     app = QApplication(sys.argv)
