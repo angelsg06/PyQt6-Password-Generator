@@ -46,8 +46,6 @@ class PasswordGenerator(QMainWindow):
         clear_button = QPushButton("Clear")
         self.password_display_label = QLabel()
         self.password_display_label.setFont(QFont("Verdana", 10))
-        
-        self.display_text_label = QLabel()
 
         # Connects button to clear fields and generate password functions
         clear_button.clicked.connect(self.clear_fields)
