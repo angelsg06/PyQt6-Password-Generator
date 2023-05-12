@@ -13,7 +13,7 @@ class PasswordGenerator(QMainWindow):
         super().__init__()  
 
         # Styles main window, fixed size and background color
-        self.setFixedSize(460, 400)
+        self.setFixedSize(460, 440)
         self.setStyleSheet("background-color: #ADD8E6;")
         
         # Creates the widget variable for the disclaimer at the top of the app
