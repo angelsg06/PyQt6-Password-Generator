@@ -6,11 +6,13 @@ from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QWidget ,QCheckBox, QSpinBox, QLabel, QVBoxLayout
 )
-
+ 
 # Subclass QMainWindow to customize your application's main window
 class PasswordGenerator(QMainWindow):
     def __init__(self):
         super().__init__()  
+
+        # Styles main window, fixed size and background color
         self.setFixedSize(460, 400)
         self.setStyleSheet("background-color: #ADD8E6;")
         
@@ -54,7 +56,7 @@ class PasswordGenerator(QMainWindow):
         # Sets range of spinbox to desired amount
         self.password_length_spinbox.setRange(1,15)
 
-        # Adds the widgets to the main layout
+        # Adds the widget variables to the main layout
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         main_layout = QVBoxLayout(central_widget)
@@ -68,8 +70,7 @@ class PasswordGenerator(QMainWindow):
         main_layout.addWidget(self.include_symbols_checkbox)
         main_layout.addWidget(generate_button)
         main_layout.addWidget(clear_button)
-        main_layout.addWidget(self.password_display_label)
-       
+        main_layout.addWidget(self.password_display_label)     
     
     # Define the clear_fields method to clear all user input 
     def clear_fields(self):
